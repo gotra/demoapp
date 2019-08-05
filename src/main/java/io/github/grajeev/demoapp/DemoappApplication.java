@@ -20,14 +20,14 @@ public class DemoappApplication {
     }
 
     @RequestMapping(value = "/message", method = RequestMethod.POST)
-    public Message saveMessage(@RequestBody Message message) {
+    public void saveMessage(@RequestBody Message message) {
         messageRepository.save(message);
-        return message;
+
 
     }
 
     @RequestMapping(value = "/message/{id}", method = RequestMethod.GET)
-    public Message getMessage (@PathVariable("id") Long messageId) {
+    public Message getMessage (@PathVariable("id") String messageId) {
 
         Optional<Message> message = messageRepository.findById(messageId);
 
